@@ -8,6 +8,8 @@
 - PriceCheckController: The top level REST controller which would serve a GET request on the /fxPrices/ collection, for the given {instrumentName}
 - PriceDAO: An interface representing the storage, some sort of database. For this example, I have implemented a simple In memory database backed by a HashMap.
 - I am using 0 frameworks as suggested other than jUnit/Mockito, so just plain Java, but in a real application such as this I would have expected to see the likes of Spring thrown in.
+- PriceCheckControllerIntegrationTest: This test puts all the real components together into a test of the whole system: We will load some prices via the PriceFeedListener onto a shared in memory database, and then query the latest entry for a given instrument by directly calling the Rest controller (without an actual HTTP call)
+
 
 ### Assumptions
 1) As I am not using frameworks and it was requested not to implement the full REST service, the REST Controller is very bare bones. I have left some commented out code with the typical annotations we might use when using Spring to map Controller methods to actual endpoint URIs.
